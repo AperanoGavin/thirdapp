@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -34,6 +35,16 @@ public class MainActivity extends AppCompatActivity {
 
         this.btn= findViewById(R.id.btn);
         lv = findViewById(R.id.lv_Brand);
+
+        //lv.setOnClickListener(new AdapterView.OnItemClickListener(){
+          //  @Override
+           // public void onItemClick(AdapterView<?> adapterView, View view , int i, long l){
+           //     String Slug = ((Brand)lv.getAdapter().getItem(i).getSlug();
+          //  }
+
+       // });
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
