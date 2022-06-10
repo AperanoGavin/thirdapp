@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,6 +25,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private Button btn;
+    private ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.btn= findViewById(R.id.btn);
+        lv = findViewById(R.id.lv_Brand);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
 
 
                                      }
+                                     BrandAdapter ba = new BrandAdapter(liste_des_marques, MainActivity.this);
+                                    lv.setAdapter(ba);
+
 
                         }catch (Exception e){
                             e.printStackTrace();
