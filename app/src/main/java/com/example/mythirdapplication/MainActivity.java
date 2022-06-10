@@ -18,6 +18,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btn;
@@ -38,9 +41,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Log.d("API RESULTAT", response);
+                        List<Brand> liste_des_marques = new ArrayList<Brand>();
                         try {
                             JSONObject global = new JSONObject(response);
                             JSONArray array_brands = global.getJSONArray("data");
+                                    for(int cpt=0 ; cpt<array_brands.length(); cpt++){
+                                        Brand b = new Brand();
+                                        b.setName(array_brands.getJSONObject(cpt).getString("brand_name"));
+                                        b.setSlug(array_brands.getJSONObject(cpt).getString("brand_slug"));
+                                        b.setDevice_count(array_brands.getJSONObject(cpt).getInt("device_count"));
+                                        liste_des_marques.add(b);
+
+
+                                     }
 
                         }catch (Exception e){
                             e.printStackTrace();

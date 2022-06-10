@@ -10,6 +10,10 @@ public class Brand {
         this.slug = slug;
     }
 
+    public Brand() {
+
+    }
+
     public int getDevice_count() {
         return device_count;
     }
